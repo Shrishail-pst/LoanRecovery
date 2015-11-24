@@ -1,0 +1,60 @@
+
+<table width="100%">
+<tr>
+ <td><h1>Defaulters Information</h1></td>
+<!--<td align="right"><label>Import Defaulters List</label></td>
+
+<td align="left"><%= form_tag import_loanrecoveries_path, multipart: true do %>
+  <%= file_field_tag :file %></td>
+  <td align="right"><%= submit_tag "Import" %>
+<% end %></td> -->
+
+<td align="right"><label class="btn btn-inverse btn-file my-btn" action="/loanrecoveries/import" enctype="multipart/form-data" method="post"><div><input name="utf8" class="my-btn" type="hidden" value="&#x2713;" /><input name="authenticity_token" class="mybtn" type="hidden" value="AX0Jj45X2Ob6LvVvq+fUpm12c+f/2B3hT/B6pqK0LWA=" /></div><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbsp<label class="my-btn">Import Defaulters List<input type="file" class="my-btn"></label></label>
+
+<a href="/loanrecoveries/new" class="btn btn-inverse my-btn" role="button"><i class="fa fa-plus fa-lg my-btn"></i>&nbsp&nbsp<label class="my-btn">Create Defaulter</label></a></td></tr></table>
+
+<table id="loan_table" class="display responsive no-wrap">
+ 
+  <thead>
+    <tr>
+   
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Bank</th>
+      <th>Loan</th>
+            <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @loanrecoveries=Loanrecovery.all %>
+
+    <% @loanrecoveries.each do |loanrecovery| %>
+
+   
+      <tr>
+    
+        <td  data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.name %></a></td>
+        <td data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.phone %></td>
+        <td data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.address %></td>
+        <td data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.email %></td>
+        <td data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.status %></td>
+         <td data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.bank.name if loanrecovery.bank %></td>
+         <td data-link="<%= edit_loanrecovery_path(loanrecovery) %>", style="cursor:pointer" ><%= loanrecovery.loan.loanname if loanrecovery.loan %></td>
+      <!--  <td><%= link_to 'Show', loanrecovery %></td>
+        <td><%= link_to 'Edit', edit_loanrecovery_path(loanrecovery) %></td> -->
+        <td><%= link_to 'Destroy', loanrecovery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+
+
+
+

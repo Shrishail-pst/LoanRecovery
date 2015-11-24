@@ -1,0 +1,43 @@
+<%= form_for(@recovered) do |f| %>
+  <% if @recovered.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recovered.errors.count, "error") %> prohibited this recovered from being saved:</h2>
+
+      <ul>
+      <% @recovered.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table align="center"><tr align="right">
+  <div class="field">
+    <td align="right"><h4>
+    <%= f.label :recovered_amount %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.number_field :recovered_amount, class: "form-control input-lg", placeholder: "Enter Recovered Amount" %></td>
+  </div>
+</tr>
+<tr><td><br></td></tr>
+ <tr align="right">
+  <div class="field">
+    <td align="right"><h4>
+    <%= f.label :recovery_time %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.number_field :recovery_time, class: "form-control input-lg", placeholder: "Enter Recovery Time" %></td>
+  </div>
+</tr>
+<tr><td><br></td></tr>
+<tr align="right">
+  <div class="field">
+    <td align="right"><h4>
+    <%= f.label :recovery_charges %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.number_field :recovery_charges, class: "form-control input-lg", placeholder: "Enter Recovery Charges" %></td>
+  </div>
+</tr>
+<tr><td><br></td></tr>
+</table>
+  <div class="actions" align="center">
+    <input class="btn btn-inverse my-btn" type="submit" value="Update Recovery"></input>
+
+  </div>
+<% end %>

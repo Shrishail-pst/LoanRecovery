@@ -1,0 +1,34 @@
+<h1>Loan Information</h1>
+
+<table id="loans-table" class="display">
+  <thead>
+    <tr>
+	<th>Bank ID</th>
+      <th>Loan ID</th>
+	<th>Loan Name</th>
+      <th>Loan type</th>
+      <th>Interest rate</th>
+	<th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @loans=Loan.all %>
+    <% @loans.each do |loan| %>
+      <tr>
+	<td  data-link="<%= edit_loan_path(loan) %>", style="cursor:pointer" ><%= loan.bank.id if loan.bank %></td>
+        <td  data-link="<%= edit_loan_path(loan) %>", style="cursor:pointer" ><%= loan.id %></td>
+	<td  data-link="<%= edit_loan_path(loan) %>", style="cursor:pointer" ><%= loan.loanname %></td>
+        <td  data-link="<%= edit_loan_path(loan) %>", style="cursor:pointer" ><%= loan.loan_type %></td>
+        <td  data-link="<%= edit_loan_path(loan) %>", style="cursor:pointer" ><%= loan.interest_rate %></td>
+       <!-- <td><%= link_to 'Show', loan %></td>
+        <td><%= link_to 'Edit', edit_loan_path(loan) %></td>-->
+        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan', new_loan_path %>

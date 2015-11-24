@@ -1,0 +1,37 @@
+<table width="100%">
+<tr>
+<td align="left"><h1>Recovered Defaulters</h1></td>
+<td align="right"><a href="/recovereds/new" class="btn btn-inverse my-btn" role="button"><i class="fa fa-plus fa-lg my-btn"></i>&nbsp&nbsp<label class="my-btn">Create Recovery</label></td>
+</tr></table>
+
+
+<table id="loan_table" class="display responsive no-wrap">
+  <thead>
+    <tr>
+	<th>Defaulter Name</th>
+      <th>Recovered amount</th>
+      <th>Recovery time</th>
+      <th>Recovery charges</th>
+     <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @recovereds=Recovered.all %>
+
+    <% @recovereds.each do |recovered| %>
+      <tr>
+	<td  data-link="<%= edit_recovered_path(recovered) %>", style="cursor:pointer" ><%= recovered.loanrecovery.name if recovered.loanrecovery %></td>
+        <td  data-link="<%= edit_recovered_path(recovered) %>", style="cursor:pointer" ><%= recovered.recovered_amount %></td>
+        <td  data-link="<%= edit_recovered_path(recovered) %>", style="cursor:pointer" ><%= recovered.recovery_time %></td>
+        <td  data-link="<%= edit_recovered_path(recovered) %>", style="cursor:pointer" ><%= recovered.recovery_charges %></td>
+       
+        <td><%= link_to 'Destroy', recovered, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

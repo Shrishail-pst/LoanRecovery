@@ -1,0 +1,34 @@
+
+
+<table width="100%">
+<tr>
+<td align="left"><h1>Listing rules</h1></td>
+<td align="right"><a href="/rules/new" class="btn btn-inverse my-btn" role="button"><i class="fa fa-plus fa-lg my-btn"></i>&nbsp&nbsp<label class="my-btn">Create Rule</label></td>
+</tr>
+</table>
+
+<table id="rules-table" class="display responsive no-wrap">
+  <thead>
+    <tr>
+      <th>Rule Id</th>
+      <th>Rule name</th>
+	<th>Destroy</th>
+     </tr>
+  </thead>
+
+  <tbody>
+    <% @rules.each do |rule| %>
+      <tr>
+        <td data-link="<%= edit_rule_path(rule) %>", style="cursor:pointer" ><%= rule.rule_id %></td>
+        <td data-link="<%= edit_rule_path(rule) %>", style="cursor:pointer" ><%= rule.rule_name %></td>
+        <!--<td><%= link_to 'Show', rule %></td>
+        <td><%= link_to 'Edit', edit_rule_path(rule) %></td>-->
+        <td><%= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

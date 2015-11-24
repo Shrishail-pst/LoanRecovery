@@ -1,0 +1,40 @@
+
+<h1 align="center">Defaulter Information</h1>
+<hr></hr>
+
+ <div class="well">
+  
+
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @loanrecovery.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @loanrecovery.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @loanrecovery.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @loanrecovery.email %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @loanrecovery.status %>
+</p>
+<ul class="pager">
+<li><%= link_to 'Edit', edit_loanrecovery_path(@loanrecovery) %> </li>
+<li><%= link_to 'Back', loanrecoveries_path %></li>
+
+</ul>
+</div>
+
+

@@ -1,0 +1,63 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<h1>Editing bill</h1>
+<hr></hr>
+    <%= f.fields_for :loanrecoveries do |p| %>
+<table class="tab" align="center">
+
+<tr>
+<td><%= p.label :name %></td><td></td></tr>
+<tr><td><h4>Account No:</h4></td><td></td></tr>
+<tr><td><h4>Contact Number:</h4></td><td></td></tr>
+<hr></hr>
+
+<% end %>
+<tr>
+  <div class="field">
+    <td><%= f.label :bill_id %></td>
+   <td> <%= f.number_field :bill_id %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+    <td><%= f.label :amount_paid %></td>
+    <td><%= f.number_field :amount_paid %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+    <td><%= f.label :remained_amount %></td>
+    <td><%= f.number_field :remained_amount %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+    <td><%= f.label :remained_time %></td>
+    <td><%= f.number_field :remained_time %></td>
+  </div>
+</tr>
+<tr>
+  <div class="actions">
+    <td align="center"><button type="submit" class="btn btn-inverse my-btn">Save Bill</button>
+	<button type="botton" class="btn btn-inverse my-btn">Print Bill</button></td>
+  </div>
+</tr>
+
+<% end %>
+</table>
+<ul class="pager">
+<li><%= link_to 'Show', @bill %> </li>
+<li><%= link_to 'Back', bills_path %></li>
+</ul>

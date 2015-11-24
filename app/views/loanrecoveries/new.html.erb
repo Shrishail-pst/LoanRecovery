@@ -1,0 +1,124 @@
+<h1 align="left">New Defaulter</h1>
+<hr></hr>
+<%= form_for(@loanrecovery) do |f| %>
+  <% if @loanrecovery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loanrecovery.errors.count, "error") %> prohibited this loanrecovery from being saved:</h2>
+
+      <ul>
+      <% @loanrecovery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+ -->
+
+<table align="center"><tr align="right">
+  <div class="field">
+    <td align="right"><h4><%= f.label :name %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :name, size: "70x10", class: "form-control input-lg", placeholder: "Enter Defaulter Name"%></td>
+  </div></tr>
+  <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+    <td align="right"><label><h4><%= f.label :phone %></h4></label></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :phone, size: "50x15", class: "form-control form-control-sel input-lg", placeholder: "Contact Number"%></td>
+  </div></tr>
+  <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= f.label :address %></h4></td>
+   <td align="right" style="padding-left:30px"> <%= f.text_field :address, size: "50x15", class: "form-control form-control-sel input-lg", placeholder: " Defaulter Address"%></td>
+  </div></tr>
+  <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= f.label :email %></h4></td>
+   <td align="right" style="padding-left:30px"> <%= f.text_field :email, size: "50x15", class: "form-control form-control-sel input-lg", placeholder: "Email ID"%></td>
+  </div></tr>
+   <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= f.label :status %></h4></td>
+   <td align="right" style="padding-left:30px"> <%= f.text_field :status, size: "50x15", class: "form-control form-control-sel input-lg", placeholder: "Status"%></td>
+  </div></tr>
+<tr><td><br></td></tr>
+<tr align="right">
+  <div class="field" >	
+  <td align="right"><%= f.label :bankname %>:</td>
+
+  <td align="left"><div ><%= f.select:bankname,Bank.all.collect { |p| ["#{p.name}"] }, {
+:include_blank => 'None' }, class: "form-control" %></div>
+
+  </td>
+  </div>
+  </tr>
+  <tr><td><br></td></tr>
+<tr align="right">
+  <div class="field" >
+  <td align="right"><%= f.label :loan %>:</td>
+  <td align="left"><%= f.select("loan_id", Loan.all.collect { |m| [m.loanname, m.id] }, {:include_blank => 'None'}) %></td>
+  </div>
+  </tr>
+
+
+  </table>
+
+  <script type="text/javascript">
+  
+//   var stateObject = {
+//     "Maharashtra": {
+//         "Solapur": ["Shivaji Chowk", "Park Chowk"],
+//         "Pune": ["Kothrud", "Baner"]
+//     },
+//     "Gujarat": {
+//         "Surat": ["Dhyanchand Road", "Rail Lines"],
+//         "Ahmedabad": ["Airport", "Bus stand"]
+//     }
+// }
+// window.onload = function () {
+//     var stateSel = document.getElementById("stateSel"),
+//         countySel = document.getElementById("countySel"),
+//         citySel = document.getElementById("citySel");
+//     for (var state in stateObject) {
+//         stateSel.options[stateSel.options.length] = new Option(state, state);
+//     }
+//     stateSel.onchange = function () {
+//         countySel.length = 1; // remove all options bar first
+//         citySel.length = 1; // remove all options bar first
+//         if (this.selectedIndex < 1) return; // done   
+//         for (var county in stateObject[this.value]) {
+//             countySel.options[countySel.options.length] = new Option(county, county);
+//         }
+//     }
+//     stateSel.onchange(); // reset in case page is reloaded
+//     countySel.onchange = function () {
+//         citySel.length = 1; // remove all options bar first
+//         if (this.selectedIndex < 1) return; // done   
+//         var cities = stateObject[stateSel.value][this.value];
+//         for (var i = 0; i < cities.length; i++) {
+//             citySel.options[citySel.options.length] = new Option(cities[i], cities[i]);
+//         }
+//     }
+// }
+// </script>  
+ <br><br>
+  <div class="actions" align="center">
+    <input class="btn btn-inverser my-btn" type="submit" value="Create Defaulter"></input>
+  </div>
+<% end %>
+<ul class="pager">
+<li><%= link_to 'Back', loanrecoveries_path %></li>
+</ul>

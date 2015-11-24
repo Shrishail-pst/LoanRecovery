@@ -1,0 +1,79 @@
+<%= form_for(@loanrecovery) do |f| %>
+  <% if @loanrecovery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loanrecovery.errors.count, "error") %> prohibited this loanrecovery from being saved:</h2>
+
+      <ul>
+      <% @loanrecovery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <%= f.fields_for :bills do |p| %>
+<table align="center"><tr align="right">
+  <div class="field">
+    <td align="right"><h4><%= f.label :name %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :name, size: "70x10", class: "form-control input-lg", placeholder: "Enter Defaulter Name"%></td>
+  </div></tr>
+  <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+    <td align="right"><label><h4><%= f.label :phone %></h4></label></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :phone, size: "70x15", class: "form-control input-lg", placeholder: "Contact Number"%></td>
+  </div></tr>
+  <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= f.label :address %></h4></td>
+   <td align="right" style="padding-left:30px"> <%= f.text_field :address, size: "70x15", class: "form-control input-lg", placeholder: " Defaulter Address"%></td>
+  </div></tr>
+  <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= f.label :email %></h4></td>
+   <td align="right" style="padding-left:30px"> <%= f.text_field :email, size: "70x15", class: "form-control input-lg", placeholder: "Emai ID"%></td>
+  </div></tr>
+   <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= f.label :status %></h4></td>
+   <td align="right" style="padding-left:30px"> <%= f.text_field :status, size: "70x15", class: "form-control input-lg", placeholder: "Status"%></td>
+  </div></tr>
+    <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= p.label :totalamount, value: "Total Amount" %></h4></td>
+    <td align="right" style="padding-left:30px"> <%= p.text_field :totalamount, size: "70x15", class: "form-control input-lg", placeholder: "Enter Total Amount"%></td>
+  </div></tr>
+   <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= p.label :amount_paid %></h4></td>
+    <td align="right" style="padding-left:30px"> <%= p.text_field :amount_paid, size: "70x15", class: "form-control input-lg", placeholder: "Enter The Paid Amount"%></td>
+  </div></tr>
+    <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= p.label :remained_amount %></h4></td>
+    <td align="right" style="padding-left:30px"> <%= p.text_field :remained_amount, size: "70x15", class: "form-control input-lg", placeholder: "Enter The Remained Amount"%></td>
+  </div></tr>
+    <tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+   <td align="right"> <h4><%= p.label :dateofpayment %></h4></td>
+    <td align="left" style="padding-left:30px"> <%= p.date_select :dateofpayment%></td>
+  </div></tr>
+  </table>
+
+ <br><br>
+  <div class="actions" align="center">
+    <input class="btn btn-inverse my-btn" type="submit" value="Update Defaulter"></input>
+  </div>
+<% end %>
+<% end %>
+
+
+<!-- </body>
+</html> -->

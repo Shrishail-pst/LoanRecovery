@@ -1,0 +1,33 @@
+<%= form_for(@rule) do |f| %>
+  <% if @rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @rule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table align="center"><tr align="right">
+  <div class="field">
+    <td align="right"><h4>  
+    <%= f.label :rule_id %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :rule_id, class: "form-control input-lg", placeholder: "Enter Rule ID" %></td>
+  </div>
+</tr>
+<tr><td><br></td></tr>
+  <tr align="right">
+  <div class="field">
+    <td align="right"><h4>
+    <%= f.label :rule_name %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :rule_name, class: "form-control input-lg", placeholder: "Enter Rule Name" %></td>
+  </div>
+</tr>
+<tr><td><br></td></tr>
+</table>
+  <div class="actions" align="center">
+    <input class="btn btn-inverse my-btn" type="submit" value="Update Rule"></input>
+  </div>
+<% end %>

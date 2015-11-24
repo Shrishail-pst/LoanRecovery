@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recovered amount:</strong>
+  <%= @recovered.recovered_amount %>
+</p>
+
+<p>
+  <strong>Recovery time:</strong>
+  <%= @recovered.recovery_time %>
+</p>
+
+<p>
+  <strong>Recovery charges:</strong>
+  <%= @recovered.recovery_charges %>
+</p>
+
+<%= link_to 'Edit', edit_recovered_path(@recovered) %> |
+<%= link_to 'Back', recovereds_path %>

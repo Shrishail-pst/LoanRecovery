@@ -1,0 +1,13 @@
+
+<div class="well">
+<h2>Import Defaulters List</h2>
+
+<%= form_tag import_loanrecoveries_path, multipart: true, do %>
+  <%= file_field_tag :file %><br><br>
+  <div align="center">
+  <button type="submit" class="btn btn-primary">Import</button></div>
+<% end %>
+</div>
+<ul class="pager">
+<li><%= link_to 'Back', loanrecoveries_path %></li>
+</ul>

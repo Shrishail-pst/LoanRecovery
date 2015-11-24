@@ -1,0 +1,9 @@
+class RemoveColumns < ActiveRecord::Migration
+  def change
+  end
+ def self.up
+  remove_column :loans, :loan_id
+  remove_column :loans, :loan_amount
+  remove_column :loans, :amount_paid
+end
+end

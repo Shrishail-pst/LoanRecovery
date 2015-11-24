@@ -1,0 +1,43 @@
+
+<h1>Banks Information</h1>
+
+<table id="loan_table" class="display responsive no-wrap">
+
+  <thead>
+    <tr>
+    <th>Bank ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact number</th>
+      <th>Branch</th>
+      <th>Email</th>
+      <th>Rule</th>
+  <!--     <th>Show</th>
+	 <th>Edit</th> -->
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @banks=Bank.all %>
+    <% @banks.each do |bank| %>
+      <tr>
+         <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.id %></td>
+       <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.name %></td>
+        <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.address %></td>
+        <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.contact_number %></td>
+        <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.branch %></td>
+      <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.email %></td>
+      <td  data-link="<%= edit_bank_path(bank) %>", style="cursor:pointer" ><%= bank.rule.rule_name if bank.rule %></td>
+        <!-- <td><%= link_to 'Show', bank %></td>
+        <td><%= link_to 'Edit', edit_bank_path(bank) %></td> -->
+        <td><%= link_to 'Destroy', bank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Bank', new_bank_path %>

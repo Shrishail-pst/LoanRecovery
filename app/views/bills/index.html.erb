@@ -1,0 +1,35 @@
+<h1>Information Of Bill</h1>
+
+<table id="loan_table" class="display responsive no-wrap">
+  <thead>
+    <tr>
+      <th>Bill ID</th>
+      <th>Amount paid</th>
+      <th>Remained amount</th>
+      <th>Remained time</th>
+<th>Defaulter Name</th>
+
+<th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @bills=Bill.all %>
+
+    <% @bills.each do |bill| %>
+      <tr>
+        <td  data-link="<%= edit_bill_path(bill) %>", style="cursor:pointer" ><%= bill.id %></td>
+        <td  data-link="<%= edit_bill_path(bill) %>", style="cursor:pointer" ><%= bill.amount_paid %></td>
+        <td  data-link="<%= edit_bill_path(bill) %>", style="cursor:pointer" ><%= bill.remained_amount %></td>
+       <td  data-link="<%= edit_bill_path(bill) %>", style="cursor:pointer" ><%= bill.remained_time %></td>
+	<td  data-link="<%= edit_bill_path(bill) %>", style="cursor:pointer" ><%= bill.loanrecovery.name if bill.loanrecovery %>
+      
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bill', new_bill_path %>

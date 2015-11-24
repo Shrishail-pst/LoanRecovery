@@ -1,0 +1,40 @@
+<h1>New rule</h1>
+
+<%= form_for(@rule) do |f| %>
+  <% if @rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @rule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table align="center"><tr align="right">
+  <div class="field">
+    <td align="right"><h4><%= f.label :rule_id %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :rule_id, size: "70x10", class: "form-control input-lg", placeholder: "" %></td>
+  </div>
+</tr>
+  <tr><td><br></td></tr>
+<tr align="right">
+  <div class="field">
+   <td align="right"><h4> <%= f.label :rule_name %></h4></td>
+    <td align="right" style="padding-left:30px"><%= f.text_field :rule_name, size: "70x10", class: "form-control input-lg", placeholder: "Enter Rule Name" %></td>
+  </div>
+</tr>
+</table>
+<tr><td><br></td></tr>
+<tr align="center">
+  <div class="actions" align="center">
+    <input class="btn btn-inverser my-btn" type="submit" value="Create Rule"></input>
+  </div>
+</tr>
+
+<% end %>
+<ul class="pager">
+
+<li><%= link_to 'Back', rules_path %></li>
+</ul>
